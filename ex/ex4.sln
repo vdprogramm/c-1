@@ -1,25 +1,37 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.10.34916.146
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex4", "ex4\ex4.csproj", "{4A551C89-CF4A-4479-9CCC-E8C44539CBD3}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4A551C89-CF4A-4479-9CCC-E8C44539CBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A551C89-CF4A-4479-9CCC-E8C44539CBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A551C89-CF4A-4479-9CCC-E8C44539CBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A551C89-CF4A-4479-9CCC-E8C44539CBD3}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {38C34621-9291-4188-B667-F43C4841A369}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Linq;
+
+namespace MaxValueInArray
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Prompt the user to enter the number of elements in the array
+            Console.WriteLine("Enter the number of elements in the array:");
+            int arraySize;
+            while (!int.TryParse(Console.ReadLine(), out arraySize) || arraySize <= 0)
+            {
+                Console.WriteLine("Please enter a valid positive integer for the number of elements:");
+            }
+
+            int[] numbers = new int[arraySize];
+
+            // Prompt the user to enter the elements of the array
+            Console.WriteLine($"Enter {arraySize} integers:");
+            for (int i = 0; i < arraySize; i++)
+            {
+                while (!int.TryParse(Console.ReadLine(), out numbers[i]))
+                {
+                    Console.WriteLine("Please enter a valid integer:");
+                }
+            }
+
+            // Find the maximum value in the array
+            int maxValue = numbers.Max();
+
+            // Output the maximum value
+            Console.WriteLine($"The maximum value in the array is {maxValue}");
+        }
+    }
+}
