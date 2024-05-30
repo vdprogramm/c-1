@@ -1,34 +1,33 @@
 using System;
 
-namespace NumericConversionExample
+namespace CharToAsciiConversion
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Prompt the user to enter a real number
-            Console.WriteLine("Please enter a real number:");
+            // Prompt the user to enter a character
+            Console.WriteLine("Please enter a character:");
 
             // Read the input from the console
             string input = Console.ReadLine();
 
-            // Parse the input to a double
-            double realNumber;
-            bool success = double.TryParse(input, out realNumber);
-
-            if (success)
+            // Validate the input to ensure it's a single character
+            if (!string.IsNullOrEmpty(input) && input.Length == 1)
             {
-                // Cast the double to int and long
-                int intNumber = (int)realNumber;
-                long longNumber = (long)realNumber;
+                // Get the character from the input string
+                char character = input[0];
+
+                // Cast the character to int to get the ASCII code
+                int asciiCode = (int)character;
 
                 // Output the result
-                Console.WriteLine($"The number you entered is {realNumber}, as an int is {intNumber} and as a long is {longNumber}");
+                Console.WriteLine($"The character you entered is '{character}', its ASCII code is {asciiCode}");
             }
             else
             {
                 // Handle invalid input
-                Console.WriteLine("The input provided is not a valid real number.");
+                Console.WriteLine("The input provided is not a valid character.");
             }
         }
     }
