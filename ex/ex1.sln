@@ -1,25 +1,34 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.10.34916.146
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex1", "ex1\ex1.csproj", "{2B97B65A-33A8-4151-9BBE-A90CE72A1738}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B97B65A-33A8-4151-9BBE-A90CE72A1738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B97B65A-33A8-4151-9BBE-A90CE72A1738}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B97B65A-33A8-4151-9BBE-A90CE72A1738}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B97B65A-33A8-4151-9BBE-A90CE72A1738}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {88E08488-F747-4097-BC16-3BBBC32D459F}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace CastingExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Prompt the user to enter an integer
+            Console.WriteLine("Please enter an integer:");
+
+            // Read the input from the console
+            string input = Console.ReadLine();
+
+            // Parse the input to an integer
+            int integerNumber;
+            bool success = int.TryParse(input, out integerNumber);
+
+            if (success)
+            {
+                // Cast the integer to double
+                double doubleNumber = (double)integerNumber;
+
+                // Output the result
+                Console.WriteLine($"The number you entered is {integerNumber} and as a double is {doubleNumber}");
+            }
+            else
+            {
+                // Handle invalid input
+                Console.WriteLine("The input provided is not a valid integer.");
+            }
+        }
+    }
+}
